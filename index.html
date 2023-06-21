@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marks</title>
+</head>
+<body>
+  <label for="maths">Maths:</label>
+  <input type="number" id="maths" min="0" max="100"><br><br>
+
+  <label for="science">Science:</label>
+  <input type="number" id="science" min="0" max="100"><br><br>
+
+  <label for="english">English:</label>
+  <input type="number" id="english" min="0" max="100"><br><br>
+
+  <label for="Sanskrit">Sanskrit:</label>
+  <input type="number" id="Sanskrit" min="0" max="100"><br><br>
+
+  <label for="Telugu">Telugu:</label>
+  <input type="number" id="Telugu" min="0" max="100"><br><br>
+
+  <button onclick="calculateMarks()">Calculate Marks</button>
+  <button onclick="calculateTotal()">Calculate Total Marks</button>
+  <button onclick="status()">Check</button>
+
+  <p id="marks"></p>
+  <p id="totalMarks"></p>
+  <p id="x"></p>
+  <script>
+    function calculateMarks() {
+      var mathsMarks = parseInt(document.getElementById("maths").value);
+      var scienceMarks = parseInt(document.getElementById("science").value);
+      var englishMarks = parseInt(document.getElementById("english").value);
+      var SanskritMarks = parseInt(document.getElementById("Sanskrit").value);
+      var TeluguMarks = parseInt(document.getElementById("Telugu").value);
+
+      var output = "Maths: " + mathsMarks + "<br>";
+      output += "Science: " + scienceMarks + "<br>";
+      output += "English: " + englishMarks + "<br>";
+      output += "Sanskrit: " + SanskritMarks + "<br>";
+      output += "Telugu: " + TeluguMarks;
+
+      document.getElementById("marks").innerHTML = output;
+    }
+
+    function calculateTotal() {
+      var mathsMarks = parseInt(document.getElementById("maths").value);
+      var scienceMarks = parseInt(document.getElementById("science").value);
+      var englishMarks = parseInt(document.getElementById("english").value);
+      var SanskritMarks = parseInt(document.getElementById("Sanskrit").value);
+      var TeluguMarks = parseInt(document.getElementById("Telugu").value);
+
+      var totalMarks = mathsMarks + scienceMarks + englishMarks + SanskritMarks + TeluguMarks;
+
+      document.getElementById("totalMarks").innerHTML = "Total Marks: " + totalMarks;
+    }
+
+    function status() {
+      var totalMarks = parseInt(document.getElementById("totalMarks").innerText.split(":")[1].trim());
+      var statusOutput = totalMarks <= 200 ? "Fail" : "Pass";
+      
+      document.getElementById("x").innerHTML = "Check: " + statusOutput;
+    }
+  </script>
+</body>
+</html>
